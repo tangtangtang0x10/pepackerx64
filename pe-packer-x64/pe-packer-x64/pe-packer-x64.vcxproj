@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <ProjectGuid>{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>pepackerx64</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>$(SolutionDir)x64\$(Configuration)\</OutDir>
+    <IntDir>x64\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(SolutionDir)x64\$(Configuration)\</OutDir>
+    <IntDir>x64\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_WINDOWS;ASMJIT_STATIC;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>false</ConformanceMode>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)asmjit;$(ProjectDir)pe_lib;$(SolutionDir)vendor\imgui;$(SolutionDir)vendor\imgui\backends;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>d3d11.lib;dxgi.lib;d3dcompiler.lib;dwmapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_WINDOWS;ASMJIT_STATIC;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>false</ConformanceMode>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)asmjit;$(ProjectDir)pe_lib;$(SolutionDir)vendor\imgui;$(SolutionDir)vendor\imgui\backends;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>d3d11.lib;dxgi.lib;d3dcompiler.lib;dwmapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="pe-packer-x64.cpp" />
+    <ClCompile Include="core\adasm.cpp" />
+    <ClCompile Include="core\core.cpp" />
+    <ClCompile Include="core\mba.cpp" />
+    <ClCompile Include="gui\gui_app.cpp" />
+    <ClCompile Include="utils\arguments.cpp" />
+    <ClCompile Include="asmjit_build.cpp" />
+    <ClCompile Include="..\vendor\imgui\imgui.cpp" />
+    <ClCompile Include="..\vendor\imgui\imgui_demo.cpp" />
+    <ClCompile Include="..\vendor\imgui\imgui_draw.cpp" />
+    <ClCompile Include="..\vendor\imgui\imgui_tables.cpp" />
+    <ClCompile Include="..\vendor\imgui\imgui_widgets.cpp" />
+    <ClCompile Include="..\vendor\imgui\backends\imgui_impl_dx11.cpp" />
+    <ClCompile Include="..\vendor\imgui\backends\imgui_impl_win32.cpp" />
+    <ClCompile Include="pe_lib\entropy.cpp" />
+    <ClCompile Include="pe_lib\file_version_info.cpp" />
+    <ClCompile Include="pe_lib\message_table.cpp" />
+    <ClCompile Include="pe_lib\pe_base.cpp" />
+    <ClCompile Include="pe_lib\pe_bound_import.cpp" />
+    <ClCompile Include="pe_lib\pe_checksum.cpp" />
+    <ClCompile Include="pe_lib\pe_debug.cpp" />
+    <ClCompile Include="pe_lib\pe_directory.cpp" />
+    <ClCompile Include="pe_lib\pe_dotnet.cpp" />
+    <ClCompile Include="pe_lib\pe_exception.cpp" />
+    <ClCompile Include="pe_lib\pe_exception_directory.cpp" />
+    <ClCompile Include="pe_lib\pe_exports.cpp" />
+    <ClCompile Include="pe_lib\pe_factory.cpp" />
+    <ClCompile Include="pe_lib\pe_imports.cpp" />
+    <ClCompile Include="pe_lib\pe_load_config.cpp" />
+    <ClCompile Include="pe_lib\pe_properties.cpp" />
+    <ClCompile Include="pe_lib\pe_properties_generic.cpp" />
+    <ClCompile Include="pe_lib\pe_rebuilder.cpp" />
+    <ClCompile Include="pe_lib\pe_relocations.cpp" />
+    <ClCompile Include="pe_lib\pe_resource_manager.cpp" />
+    <ClCompile Include="pe_lib\pe_resource_viewer.cpp" />
+    <ClCompile Include="pe_lib\pe_resources.cpp" />
+    <ClCompile Include="pe_lib\pe_rich_data.cpp" />
+    <ClCompile Include="pe_lib\pe_section.cpp" />
+    <ClCompile Include="pe_lib\pe_tls.cpp" />
+    <ClCompile Include="pe_lib\resource_bitmap_reader.cpp" />
+    <ClCompile Include="pe_lib\resource_bitmap_writer.cpp" />
+    <ClCompile Include="pe_lib\resource_cursor_icon_reader.cpp" />
+    <ClCompile Include="pe_lib\resource_cursor_icon_writer.cpp" />
+    <ClCompile Include="pe_lib\resource_data_info.cpp" />
+    <ClCompile Include="pe_lib\resource_message_list_reader.cpp" />
+    <ClCompile Include="pe_lib\resource_string_table_reader.cpp" />
+    <ClCompile Include="pe_lib\resource_version_info_reader.cpp" />
+    <ClCompile Include="pe_lib\resource_version_info_writer.cpp" />
+    <ClCompile Include="pe_lib\utils.cpp" />
+    <ClCompile Include="pe_lib\version_info_editor.cpp" />
+    <ClCompile Include="pe_lib\version_info_viewer.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="core\adasm.hpp" />
+    <ClInclude Include="core\core.hpp" />
+    <ClInclude Include="core\mba.hpp" />
+    <ClInclude Include="gui\gui_app.hpp" />
+    <ClInclude Include="handler\handler.hpp" />
+    <ClInclude Include="utils\arguments.hpp" />
+    <ClInclude Include="utils\utils.hpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
